@@ -1,5 +1,5 @@
 describe('Home Page Video Functionality', () => {
-    it('should display and play the video', () => {
+    it.only('should display and play the video', () => {
         const loginUrl = 'https://develop.d3ah3ul8h6dpda.amplifyapp.com/auth';
         const email = 'malik.murtaza+308@zweidevs.com';
         const password = 'Malik123@';
@@ -10,6 +10,7 @@ describe('Home Page Video Functionality', () => {
         cy.get(':nth-child(7) > .z-0').click();
 
         cy.url().should('include', '/home');
+        cy.wait(3000)
 
         cy.get('main > :nth-child(2) > :nth-child(1) video') // Adjusted selector to target the video element
           .should('have.prop', 'paused', true)
