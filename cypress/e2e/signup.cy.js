@@ -6,7 +6,7 @@ describe('Signup Functionality Tests', () => {
   it('Signs up with valid details', () => {
     const signupUrl = 'https://develop.d3ah3ul8h6dpda.amplifyapp.com/auth';
     const password = 'Malik123@';
-
+// 
     // Visit the signup page
     cy.visit(signupUrl);
     

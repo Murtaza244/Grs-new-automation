@@ -24,9 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 // Custom command to log in
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('/login'); // Adjust to your login URL
-    cy.get('input[name="email"]').type(email);
-    cy.get('input[name="password"]').type(password);
-    cy.get('button[type="submit"]').click();
-});
+/// <reference types="Cypress" />
+/// <reference types="cypress-xpath" />
+// cypress/support/commands.js
+Cypress.Commands.add('Login',(email,password)  => {
+    const loginUrl = 'https://develop.d3ah3ul8h6dpda.amplifyapp.com/auth';
+    cy.visit(loginUrl);
+    cy.get(':nth-child(4) > .group > .flex > .tap-highlight-transparent').type("malik.murtaza+003@zweidevs.com");
+    cy.get(':nth-child(5) > .group > .flex > .tap-highlight-transparent').type("Malik123@");
+    cy.get(':nth-child(7) > .z-0').click();
+    cy.url().should('include', 'com/home');
+  });
+
+    
+
+
